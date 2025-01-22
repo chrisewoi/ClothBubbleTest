@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -462,6 +463,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   h: 512
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f9b3d22833e18049bd87cae13a77a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundObjects: []
+  groundRenderers: []
+  groundYs: []
+  player: {fileID: 927293851}
+  playerRb: {fileID: 0}
+  screenEdgePadding: {x: 2, y: 2, z: 2, w: 2}
+  yUpper: 0.75
+  yLower: 0.6
+  v: {x: 0, y: 0, z: 0}
+  cameraLowLimit: 0
+  cameraHighLimit: 0
+  cameraSmoothTime: 0.5
 --- !u!1001 &542273743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -533,6 +558,10 @@ PrefabInstance:
     - target: {fileID: 3430109962003567650, guid: 0efdb3f3f0abd7141bba4449182038ca, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707566683383432625, guid: 0efdb3f3f0abd7141bba4449182038ca, type: 3}
+      propertyPath: m_SolverFrequency
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4707566683383432625, guid: 0efdb3f3f0abd7141bba4449182038ca, type: 3}
       propertyPath: m_SphereColliders.Array.size
@@ -6286,7 +6315,7 @@ MonoBehaviour:
   modelRot: {x: 0, y: 0, z: 0}
   offset: 0
   idleTarget: 3
-  maxRandIdle: 0
+  maxRandIdle: 3
 --- !u!4 &1696209538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1649744833979297344, guid: 0efdb3f3f0abd7141bba4449182038ca, type: 3}
