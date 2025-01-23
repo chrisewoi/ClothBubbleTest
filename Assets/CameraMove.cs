@@ -49,9 +49,9 @@ public class CameraMove : MonoBehaviour
         Vector3 playerScreenPosition = Camera.main.WorldToScreenPoint(player.transform.position);
         float normX = playerScreenPosition.x / Screen.width;
         float normY = playerScreenPosition.y / Screen.height;
-        Debug.Log("player screen pos: " + playerScreenPosition);
-        Debug.Log("normX: " + normX);
-        Debug.Log("normY: " + normY);
+        //Debug.Log("player screen pos: " + playerScreenPosition);
+        //Debug.Log("normX: " + normX);
+        //Debug.Log("normY: " + normY);
         
         SetCameraX(player.transform.position.x);
         

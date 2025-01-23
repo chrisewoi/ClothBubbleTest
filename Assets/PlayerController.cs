@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public float gravityMultPlayer; // the gravity mult that player modifies
     public float gravityMultAbility; // the gravity mult that abilities modify
 
+    public float fanForceMult;
+
     public bool moveEnabled;
 
     public WandAbility wandAbility;
@@ -43,7 +45,7 @@ public class PlayerController : MonoBehaviour
         xMove = Input.GetAxisRaw("Horizontal");
         if (grounded && Input.GetButtonDown("Jump"))
         {
-            Debug.Log("jump");
+            //Debug.Log("jump");
             rb.AddForce(jumpAmount * Vector3.up, ForceMode.Impulse);
         }
         
@@ -119,6 +121,16 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.CompareTag("Ground"))
         {
             grounded = false;
+        }
+    }
+    void OnTriggerStay(Collider col)
+    {
+        if (col.transform.CompareTag("FanForce"))
+        {
+            Debug.Log("Collision stay: " + col.gameObject.name);
+            FanSpin fan = col.gameObject.GetComponentInParent<FanSpin>();
+
+            rb.AddForce(-col.transform.up * fan.GetSpeed() * fanForceMult, ForceMode.Force);
         }
     }
 

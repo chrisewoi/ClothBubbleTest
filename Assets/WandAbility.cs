@@ -91,7 +91,7 @@ public class WandAbility : MonoBehaviour
     void FixedUpdate()
     {
         playerController.SetMoveEnabled(!activated);
-        Debug.Log("Activated: " + (activated && !disableUntilGrounded));
+        //Debug.Log("Activated: " + (activated && !disableUntilGrounded));
         if (activated && !disableUntilGrounded)
         {
             bubbleMesh.enabled = true;
@@ -100,7 +100,7 @@ public class WandAbility : MonoBehaviour
             if (setFloatMode) // Float Mode
             {
                 rb.AddForce(Vector3.up * floatSpeed * Time.fixedDeltaTime, ForceMode.Force);
-                Debug.Log("velocity: " + rb.velocity);
+                //Debug.Log("velocity: " + rb.velocity);
                 rb.velocity = Vector3.ClampMagnitude(rb.velocity, floatVelocityCap);
                 //rb.velocity.y = Mathf.Clamp(rb.velocity.y, -floatVelocityCap, floatVelocityCap);
             }
@@ -113,7 +113,7 @@ public class WandAbility : MonoBehaviour
                     return;
                 }
                 
-                Debug.Log("momentum mode");
+                //Debug.Log("momentum mode");
                 playerController.SetGravityMultAbility(currentFloatGravity);
                 currentFloatGravity += (1f/floatGravityRate) * Time.fixedDeltaTime;
                 currentFloatGravity = Mathf.Clamp01(currentFloatGravity);
@@ -135,5 +135,9 @@ public class WandAbility : MonoBehaviour
             }
         }
 
+    }
+    public bool IsBubbled()
+    {
+        return bubbleMesh.enabled;
     }
 }
