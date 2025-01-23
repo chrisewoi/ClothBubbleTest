@@ -132,6 +132,12 @@ public class PlayerController : MonoBehaviour
 
             rb.AddForce(-col.transform.up * fan.GetSpeed() * fanForceMult, ForceMode.Force);
         }
+        if (col.gameObject.CompareTag("Ground") && Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f))
+        {
+            grounded = true;
+            // Reset wandAbility uses
+            wandAbility.remainingUses = wandAbility.maxUses;
+        }
     }
 
     public void SetGravityMultAbility(float mult)

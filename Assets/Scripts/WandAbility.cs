@@ -99,6 +99,7 @@ public class WandAbility : MonoBehaviour
 
             if (setFloatMode) // Float Mode
             {
+                playerController.SetGravityMultAbility(currentFloatGravity); // half grav during float
                 rb.AddForce(Vector3.up * floatSpeed * Time.fixedDeltaTime, ForceMode.Force);
                 //Debug.Log("velocity: " + rb.velocity);
                 rb.velocity = Vector3.ClampMagnitude(rb.velocity, floatVelocityCap);
